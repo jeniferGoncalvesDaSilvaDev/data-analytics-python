@@ -1,0 +1,1 @@
+print('first day with data analytics')
