@@ -19,37 +19,48 @@ while True:
    opcao=input('insira o comando: ')
    if opcao == "d":
      print('deposito')
-     print(f'seu saldo inicial: {saldo}')
+     print(f'seu saldo inicial: R$ {saldo:.2f}\n')
      deposito = float(input('insira o valor:'))
      saldo+=deposito
-     print(f'seu saldo atual é de: {saldo}')
+     extrato = print(f'seu saldo atual é de: R$ {saldo:.2f}\n')
      if deposito < 0:
         print("saldo negativo, tente novamente")
+        break
    elif opcao == "e":
+    print("--"*100)
     print("extrato")
+    print("--"*100)
+    
+    if saldo ==0:
+        print(f'seu saldo inicial: R$ {saldo:.2f}\n')
+        print("nenhum movimento")
+    else:
+        extrato = print(f'seu saldo inicial é de: R$ {saldo:.2f}\n')
+        extrato = print(f'seu saldo atual é de: R$ {saldo:.2f}\n')
    elif opcao == "s":
     print("saque")
     if numeros_saques < LIMITE_SAQUES:
         saque = float(input('insira o valor:'))
+        limite_saque= saque > limite 
         saldo-=saque
-        print(f'seu saldo atual é de: {saldo}')
-        if saque > saldo:
-            print("saldo negativo, tente novamente")
-        elif saque < saldo:
-            numeros_saques+=1
-        elif saque<0:
-            print("saldo negativo, tente novamente")
-        else:
-            numeros_saques+=1
+        extrato=print(f'seu saque atual é de: R$ {saque:.2f}\n')
+        extrato=print(f'seu saldo atual é de: R$ {saldo:.2f}\n')
+        numeros_saques+=1
+        if saque < 0:
+            print('saque negativo')
+            break
+        elif saque > saldo:
+            print('saldo insuficiente')
+            break
     elif numeros_saques == LIMITE_SAQUES:
-        print("limite de saques atingido")
-    elif saldo < limite:
-        saque = float(input('insira o valor:'))
-        saldo-=saque
-        print(f'seu saldo atual é de: {saldo}')
-    elif saldo == limite:
-        print("nao é mais possível sacar, pode zerar sua conta!")
-    
+        print("limite atingido de saques diários!")
+    elif limite_saque:
+        print('limite de R$ 500.00 atingido')
+    else:
+        saldo-=saldo
+        extrato=print(f'seu saldo atual é de: R$ {saldo:.2f}\n')
+        extrato=print(f'seu saque atual é de: R$ {saque:.2f}\n')
+        numeros_saques+=1
    elif opcao == "q":
     print("saindo...")
     break
