@@ -1,0 +1,67 @@
+#deposito 
+#saque
+#extrato-atividade
+#a v1, usa apeans um usuario 
+#no saque, deve permitor no maximo 3 saques-diarios, o limite eh de 500.00
+#o extrato, deve listar todos as operaçoes eo valor atual do extrato 
+
+saldo=0
+numeros_saques=0
+#constante
+#LIMITE_SAQUES=3
+print("--"*100)
+
+print("Bem vindo ao Cyber Bank")
+print("para operaçoes, usa: d para deposito, e para extrato, s para saque, q para sair")
+#menu =""
+while True:
+   opcao=input('insira o comando: ')
+   if opcao == "d":
+     print('deposito')
+     print(f'seu saldo inicial: R$ {saldo:.2f}\n')
+     deposito = float(input('insira o valor:'))
+     saldo+=deposito
+     extrato = print(f'seu saldo atual é de: R$ {saldo:.2f}\n')
+     if deposito < 0:
+        print("saldo negativo")
+        print("saindo")
+        break 
+        
+   elif opcao == "e":
+    print("--"*100)
+    print("extrato")
+    print("--"*100)
+    
+    if saldo ==0:
+        print(f'seu saldo inicial: R$ {saldo:.2f}\n')
+        print("nenhum movimento")
+    else:
+        extrato = print(f'seu saldo atual é de: R$ {saldo:.2f}\n')
+        
+   elif opcao == "s":
+    print("saque")
+    saque = float(input('insira o valor: '))
+    print(f'valor inicial do saldo: R$ {saldo:.2f}\n')
+    saldo-=saque
+    print(f'valor sacado: R$ {saque:.2f}\n')
+    print(f'valor atual do saldo: R$ {saldo:.2f}\n')
+    numeros_saques+=1
+    if numeros_saques >=3:
+          print('limite diário de saques atingidos! ')
+          print(f'valor atual do saldo: R$ {saldo:.2f}\n')
+          break 
+    elif saque > 500:
+        print("limite de R$ 500.00 atingidos!")
+        print(f'valor atual do saldo: R$ {saldo:.2f}\n')
+        break 
+    elif saque < 0 or saque > saldo:
+        print("valor negativo")
+        print("saindo...")
+        break 
+        
+   elif opcao == "q":
+    print("saindo...")
+    break
+   else:
+    print("comando inválido! Tente novamento :(")
+    
