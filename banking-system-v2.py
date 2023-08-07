@@ -1,19 +1,21 @@
 import random as r
 usuarios_nomes= []
-contas_correntes =[]
+usuarios_cpf=[]
 saldo=0
 numeros_saques=0
-nome=str(input("insira seu nome: "))
-sobrenome=str(input("insira o seu sobrenome: "))
-idade=int(input("insira sua idade:"))
-cep=int(input("insira seu cep: "))
-rua=str(input("insira o endereço: "))
-numero_casa=int(input("insira o número da casa: "))
-cidade=str(input("insira a cidade: "))
-estado=str(input("insira seu estado: "))
-print("conta criada com sucesso! :)")
-conta=r.randint(0,1000)  
-print(f'sua conta corrente: {conta}')     
+def criar_conta():
+     nome=str(input("insira seu nome: "))
+     sobrenome=str(input("insira o seu sobrenome: "))
+     cpf=int(input('insira seu cpf: '))
+     idade=int(input("insira sua idade:"))
+     cep=int(input("insira seu cep: "))
+     rua=str(input("insira o endereço: "))
+     numero_casa=int(input("insira o número da casa: "))
+     cidade=str(input("insira a cidade: "))
+     estado=str(input("insira seu estado: "))
+     print("conta criada com sucesso! :)")
+     numero_conta=r.randint(0,1000)  
+     print(f'sua conta corrente: 0{numero_conta}')     
       
         
         
@@ -23,19 +25,33 @@ print(f'sua conta corrente: {conta}')
 
                       
 def bem_vindo():
-    print("*"*100)
-    print(f"bem vindo ao cyber bank, {nome} {sobrenome}")
-    print("para operaçoes, usa: d para deposito, e para extrato, s para saque, q para sair")
-    opcao=input('insira o comando: ')
-    while True:
-        if opcao=="d":
-           print("deposito")
-           deposito()
+   print("para operaçoes, usa: d para deposito, e para extrato, s para saque, q para sair")
+   while True:
+       opcao=str(input('insira o comando: '))
+       if opcao=="d":
+             print("deposito")
+             deposito()
            
-        elif opcao=="s":
-            print("saque")
-            saque()
+       elif opcao=="s":
+             print("saque")
+             saque()
+             global numeros_saques
+             numeros_saques+=1
+             print(numeros_saques)
+             if numeros_saques>=3:
+                 print("limite atingido!")
+                 break 
+       elif opcao=="q":
+            print("saindo")
+            break 
+       else:
+             print("comando inválido :(")
+ 
+ 
     
+        
+    
+   
     
 def deposito():
      
@@ -59,44 +75,23 @@ def saque():
           saldo-=saque
           print(f'valor sacado: R$ {saque:.2f}\n')
           print(f'valor atual do saldo: R$ {saldo:.2f}\n')
+              
+     
+       
+          
+                  
+           
+              
+          
           
               
          
   
           
-#chamando as funções e imprimindo variáveis 
+#chamando as funções e imprimindo variáveis  
 
 
-bem_vindo()
-
-
-
-
-aques in range(1,4):
-            if numeros_saques >=3:
-               print('limite diário de saques atingidos! ')
-               print(f'valor atual do saldo: R$ {saldo:.2f}\n')
-               break 
-              
-         
-  
-          
-#chamando as funções e imprimindo variáveis 
-
-
-bem_vindo()
-
-
-
-
-()
-
-
-
-
-indo variáveis 
 #criar_conta()
-#conta_corrente()
 bem_vindo()
 #deposito()
 #print(usuarios_nomes)
@@ -104,6 +99,6 @@ bem_vindo()
 #print(dados)
 
 
-print(dados)
+
 
 
