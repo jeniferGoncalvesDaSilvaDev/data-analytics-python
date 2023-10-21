@@ -1,0 +1,9 @@
+Perguntas análise de dados de vendas de marmitas da empresa X
+1-Quantas marmitas são vendidas por semana? 
+Status: em andamento
+2-estatisticas descritivas mensais de vendas de marmitas
+Status: em andamento
+3- Qual foi a semana  e o mês que mais vendeu marmitas e por que? 
+Status: to do 
+4- Qual foi o dia, das semanas analisadas(todas) que mais vendeu marmitas?
+Status: to do 
